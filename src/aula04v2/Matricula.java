@@ -1,12 +1,13 @@
 package aula04v2;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Matricula {
-    private Aluno aluno;
+	
+	private Aluno aluno;
     private Curso curso;
     private LocalDate dataMatricula;
-    int x;
 
     public Matricula(Aluno aluno, Curso curso, LocalDate dataMatricula) {
         this.aluno = aluno;
@@ -14,16 +15,63 @@ public class Matricula {
         this.dataMatricula = dataMatricula;
     }
 
-    public static int calcularIdadeNaMatricula() {
-        LocalDate dataNascimentoAluno = aluno.getDataNascimento();
-        x = LocalDate.now().getYear() - dataNascimentoAluno.getYear();
-        
-        if (x < 18) {        	
-            System.out.println("Matricula nao pode ser realizada");
-            System.out.println("--------------------------------");
-        }else {
-            return x;
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public LocalDate getDataMatricula() {
+		return dataMatricula;
+	}
+
+	public void setDataMatricula(LocalDate dataMatricula) {
+		this.dataMatricula = dataMatricula;
+	}
+
+	public int calculoIdade() {
+		
+        LocalDate dataNascimento = aluno.getDataNascimento();
+
+        Period periodo = Period.between(dataNascimento, dataMatricula);
+
+        int anos = periodo.getYears();
+        int dias = periodo.getDays();
+
+        if (dias == 0) {
+            return anos;
         }
-		return x;
-    }
+
+        return anos - 1;
+	}
+
+	@Override
+	public String toString() {
+		return "Matricula [aluno=" + aluno + ", curso=" + curso + ", dataMatricula=" + dataMatricula + "]";
+	}
+    
+	
 }
+
+/*
+public boolean calcularIdade() {
+
+LocalDate dataNascimento = aluno.getDataNascimento();
+
+Period periodo = Period.between(dataNascimento, dataMatricula);
+
+int anos = periodo.getYears();
+
+return anos >= 18;
+}
+*/

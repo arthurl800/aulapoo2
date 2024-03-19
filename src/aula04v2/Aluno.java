@@ -3,22 +3,23 @@ package aula04v2;
 import java.time.LocalDate;
 
 public class Aluno {
-    private int numeroMatricula;
+
+	private int matricula;
     private String nome;
     private LocalDate dataNascimento;
 
-    public Aluno(int numeroMatricula, String nome, LocalDate dataNascimento) {
-        this.numeroMatricula = numeroMatricula;
+    public Aluno(int matricula, String nome, LocalDate dataNascimento) {
+        this.matricula = matricula;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
     }
 
-	public int getNumeroMatricula() {
-		return numeroMatricula;
+	public int getMatricula() {
+		return matricula;
 	}
 
-	public void setNumeroMatricula(int numeroMatricula) {
-		this.numeroMatricula = numeroMatricula;
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getNome() {
@@ -39,9 +40,7 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Matricula = " + numeroMatricula + ", Nome do Aluno = " + nome + ", Data de Nascimento = " + dataNascimento
-				+ "";
+		return "Aluno [matricula=" + matricula + ", nome=" + nome + ", dataNascimento=" + dataNascimento + "]";
 	}
-
-    
+   
 }

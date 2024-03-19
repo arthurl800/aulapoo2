@@ -3,7 +3,8 @@ package aula04v2;
 import java.time.LocalDate;
 
 public class Curso {
-    private int codigoCurso;
+    
+	private int codigoCurso;
     private String nomeCurso;
     private LocalDate dataInicio;
 
@@ -39,7 +40,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Codigo do Curso = " + codigoCurso + ", Nome do Curso = " + nomeCurso + ", Data de Inicio = " + dataInicio + "";
+		return "Curso [codigoCurso=" + codigoCurso + ", nomeCurso=" + nomeCurso + ", dataInicio=" + dataInicio + "]";
 	}
-    
+
 }
